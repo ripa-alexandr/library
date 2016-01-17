@@ -1,0 +1,57 @@
+﻿@model Library.Web.ViewModel.BookViewModel
+
+@{
+    ViewBag.Title = "Удаление книги";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Вы действительно хотите удалить книгу?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Isbn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Isbn)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Categories)
+        </dt>
+
+        @foreach (var category in Model.Categories)
+        {
+            <dd>
+                @category.Name
+            </dd>
+        }
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> 
+            <input type="button" value="Отмена" class="btn btn-default" onclick="location.href='@Url.Action("Index")'" />
+        </div>
+    }
+</div>

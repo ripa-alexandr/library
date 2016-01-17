@@ -1,0 +1,13 @@
+﻿@model Library.Web.ViewModel.CategoryViewModel
+
+@{
+    ViewBag.Title = "Создание категории";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.EditorForModel("CategoryEditor")
+}
+

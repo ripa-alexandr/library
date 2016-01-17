@@ -1,0 +1,48 @@
+﻿@model Library.Web.ViewModel.BookViewModel
+           
+@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Author, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Author, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Author)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Isbn, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Isbn, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Isbn)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AllCategories, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.ListBoxFor(i => i.SelectedCategoriesId, Model.AllCategories, new { @class = "multiselect-select2" })
+            @Html.ValidationMessageFor(model => model.AllCategories)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Сохранить" class="btn btn-default" />
+            <input type="button" value="Отмена" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Book")'" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+
+namespace Library.Web.ViewModel
+{
+    public class BookViewModel
+    {
+        public int? Id { get; set; }
+
+        [DisplayName("Автор")]
+        [Required(ErrorMessage = "Поле '{0}' должно быть установлено")]
+        [StringLength(200, ErrorMessage = "Длина строки должна быть до {0} символов")]
+        public string Author { get; set; }
+
+        [DisplayName("Название книги")]
+        [Required(ErrorMessage = "Поле '{0}' должно быть установлено")]
+        [StringLength(200, ErrorMessage = "Длина строки должна быть до {0} символов")]
+        public string Name { get; set; }
+
+        [DisplayName("ISBN")]
+        [Required(ErrorMessage = "Поле '{0}' должно быть установлено")]
+        [StringLength(30, ErrorMessage = "Длина строки должна быть до {2} символов")]
+        [RegularExpression(@"^\d+$", ErrorMessage = "Поле '{0}' должно содержать только цифры")]
+        public string Isbn { get; set; }
+
+        [DisplayName("Категории")]
+        public int[] SelectedCategoriesId { get; set; }
+
+        [DisplayName("Категории")]
+        public IEnumerable<CategoryViewModel> Categories { get; set; }
+
+        [DisplayName("Категории")]
+        public IEnumerable<SelectListItem> AllCategories { get; set; }
+    }
+}

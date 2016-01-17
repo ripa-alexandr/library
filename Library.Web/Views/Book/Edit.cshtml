@@ -1,0 +1,13 @@
+﻿@model Library.Web.ViewModel.BookViewModel
+
+@{
+    ViewBag.Title = "Редактирование книги";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel("BookEditor")
+}
+

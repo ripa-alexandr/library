@@ -1,0 +1,14 @@
+1. Run scripts in Library.DAL/Scripts
+
+2. Set connection strings
+
+Library.WebApi
+<add name="Library" connectionString="Data Source=.\sqlexpress;Initial Catalog=Library;Integrated Security=SSPI;MultipleActiveResultSets = True" providerName="System.Data.SqlClient" />
+
+Library.Web
+<add name="LibrarySecurityConnection" connectionString="Data Source=.\sqlexpress;Initial Catalog=LibrarySecurity;Integrated Security=SSPI" providerName="System.Data.SqlClient" />
+
+3. Set connection to WebApi
+
+Library.Web
+<add key="WebApiHost" value="http://localhost:5000/" />
